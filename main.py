@@ -1,8 +1,14 @@
 # TP Laboratorio de Lenguajes - Cliente de Correo - Grupo 3
  
 class Contacto:
-    pass
+    def __init__(self, nombre, apellido, direccion_mail):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.direccion_mail = direccion_mail
 
+    def __str__(self):
+        return f"{self.nombre} {self.apellido} ({self.direccion_mail})"
+    
 class Correo:
     pass
 
@@ -14,4 +20,5 @@ class Cuenta:
         self.servidor_salida = servidor_salida
 
 class ClienteDeCorreo:
-    pass
+    def __init__(self, cuenta):
+        self.cuenta = cuenta
