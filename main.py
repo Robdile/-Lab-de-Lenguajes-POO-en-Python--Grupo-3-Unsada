@@ -119,3 +119,25 @@ def main():
                     print(f"Contacto {nom} {ape} guardado.")
             else:
                 print("\nDebe configurar la cuenta primero.")
+
+        
+        elif opcion == "3":
+            if cliente:
+                asunto = input("Asunto: ")
+                msg = input("Mensaje: ")
+                dest = input("Destinatario (Email): ")
+                correo_nuevo = Correo(asunto, msg, cliente.cuenta.direccion_mail, [dest])
+                cliente.enviar_correo(correo_nuevo)
+                print(">>> Mensaje enviado.")
+            else:
+                print("\nConfigure la cuenta primero.")
+
+        elif opcion == "4":
+            if cliente:
+                mail_in = Correo("Consulta TP", "Hola, te envío los modelos corregidos.", "juan@unsada.edu.ar", [cliente.cuenta.direccion_mail])
+                cliente.agregar_correo_recibido(mail_in)
+                print("\nSimulación: Nuevo correo en Recibidos.")
+            else:
+                print("\nConfigure la cuenta primero.")
+
+
