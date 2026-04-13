@@ -153,3 +153,17 @@ def main():
                         mail.marcar_como_leido()
             else:
                 print("\nConfigure la cuenta primero.")
+
+elif opcion == "7":
+            if cliente:
+                print("\n" + "-"*35)
+                print("      REPORTE DE ESTADO")
+                print("-"*35)
+                print(f"Total correos:    {cliente.cantidad_correos()}")
+                print(f"Recibidos:       {cliente.cantidad_correos_recibidos()}")
+                print(f"Enviados:        {cliente.cantidad_correos_enviados()}")
+                print(f"Sin leer:        {cliente.cantidad_correos_no_leidos()}")
+                print(f"Total contactos: {cliente.cantidad_contactos()}")
+                print("-"*35)
+            else:
+                print("\nConfigure la cuenta primero para ver reportes.")
