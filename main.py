@@ -64,10 +64,7 @@ class ClienteDeCorreo:
     def enviar_correo(self, unCorreo):
         self.correos_enviados.append(unCorreo)
 
-class ClienteDeCorreo:
-    def __init__(self, cuenta):
-        self.cuenta = cuenta
-# --- FUNCIONES DE INTERFAZ (MENÚS) ---
+
 
 def mostrar_menu_principal():
     print("\n" + "="*40)
