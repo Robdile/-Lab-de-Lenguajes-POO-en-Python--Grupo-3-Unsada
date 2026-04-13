@@ -154,7 +154,7 @@ def main():
             else:
                 print("\nConfigure la cuenta primero.")
 
-elif opcion == "7":
+        elif opcion == "7":
             if cliente:
                 print("\n" + "-"*35)
                 print("      REPORTE DE ESTADO")
