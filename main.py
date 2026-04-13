@@ -73,11 +73,22 @@ def main():
 
         elif opcion == "4":
             if cliente:
-                mail_in = Correo("Consulta TP", "Hola, te envío los modelos corregidos.", "juan@unsada.edu.ar", [cliente.cuenta.direccion_mail])
-                cliente.agregar_correo_recibido(mail_in)
-                print("\nSimulación: Nuevo correo en Recibidos.")
+                #simulacion de un Mensaje en Bandeja
+                remitente_externo = "profesor_lab@unsada.edu.ar"
+                
+                mis_destinatarios = [cliente.cuenta.direccion_mail, "ayudante@unsada.edu.ar"]
+                
+                mail_simulado = Correo(
+                    "Revisión de Proyecto", 
+                    "Hola, recibí tu código. Está muy bien estructurado.", 
+                    remitente_externo, 
+                    mis_destinatarios
+                )
+                
+                cliente.agregar_correo_recibido(mail_simulado)
+                print(f"\n>>> SIMULACIÓN: Has recibido un correo en <{cliente.cuenta.direccion_mail}>.")
             else:
-                print("\nConfigure la cuenta primero.")
+                print("\n>>> ERROR: Primero debés configurar tu cuenta en la Opción 1.")
 
         elif opcion == "5":
             if cliente:
@@ -99,16 +110,28 @@ def main():
 
         elif opcion == "6":
             if cliente:
-                print("\n--- BANDEJA DE ENTRADA ---")
+                print("\n" + "="*20 + " BANDEJA DE ENTRADA " + "="*20)
                 if not cliente.correos_recibidos:
-                    print("Sin mensajes.")
+                    print("No hay mensajes para mostrar.")
                 else:
                     for i, mail in enumerate(cliente.correos_recibidos):
-                        est = "Leído" if mail.esta_leido else "NUEVO"
-                        print(f"{i+1}. [{est}] De: {mail.remitente} | Asunto: {mail.asunto}")
+                        # Lógica de estado: se evalúa antes de marcarlo como leído
+                        marcador = " [NUEVO] " if not mail.esta_leido else " [LEÍDO] "
+                        
+                        print(f"\n{i+1}.{marcador} Asunto: {mail.asunto}")
+                        print(f"   De: {mail.remitente}")
+                        
+                        # Mostramos todos los destinatarios (incluyéndote a vos)
+                        # .join une la lista en un solo string separado por comas
+                        print(f"   Para: {', '.join(mail.destinatarios)}")
+                        
+                        print(f"   Mensaje: {mail.cuerpo}")
+                        
+                        # Al finalizar la lectura de este correo, lo marcamos como leído
                         mail.marcar_como_leido()
+                        print("-" * 50)
             else:
-                print("\nConfigure la cuenta primero.")
+                print("\n>>> ERROR: Configure la cuenta primero.")
 
         elif opcion == "7":
             if cliente:
