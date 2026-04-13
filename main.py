@@ -25,7 +25,6 @@ class Correo:
     def marcar_como_leido(self):
         self.esta_leido = True
 
-
 class Cuenta:
     def __init__(self, nombre_usuario: str, direccion_mail: str, servidor_entrada: str, servidor_salida: str):
         self.nombre_usuario = nombre_usuario
@@ -65,7 +64,22 @@ class ClienteDeCorreo:
     def enviar_correo(self, unCorreo):
         self.correos_enviados.append(unCorreo)
 
-
 class ClienteDeCorreo:
     def __init__(self, cuenta):
         self.cuenta = cuenta
+# --- FUNCIONES DE INTERFAZ (MENÚS) ---
+
+def mostrar_menu_principal():
+    print("\n" + "="*40)
+    print("      SISTEMA DE CORREO UNSADA")
+    print("="*40)
+    print("1. Configurar Cuenta Única")
+    print("2. Gestionar Agenda (Agregar Contacto)")
+    print("3. Redactar y Enviar Correo")
+    print("4. Simular Recepción de Correo")
+    print("5. Bandeja de Salida (Ver Enviados)")
+    print("6. Bandeja de Entrada (Ver Recibidos)")
+    print("7. REPORTES / FUNCIONALIDADES")
+    print("0. Salir")
+    print("="*40)
+    return input("Seleccione una opción: ")
