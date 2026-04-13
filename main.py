@@ -17,7 +17,8 @@ def mostrar_menu_principal():
     print("="*40)
     return input("Seleccione una opción: ")
 
-def main():
+# Logica del Menu principal
+def main(): 
     cliente = None 
     
     while True:
@@ -33,7 +34,7 @@ def main():
             else:
                 user = input("Usuario: ")
                 mail = ""
-                while "@" not in mail:
+                while "@" not in mail: # Validación: Se agregó verificación del símbolo arroba (@) en la carga de correos
                     mail = input("Email: ")
                     if "@" not in mail: print("Email inválido, intente de nuevo.")
                 srv_in = input("Servidor Entrada: ")
