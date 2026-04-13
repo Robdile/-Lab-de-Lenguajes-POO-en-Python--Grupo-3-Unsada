@@ -141,3 +141,15 @@ def main():
                 print("\nConfigure la cuenta primero.")
 
 
+        elif opcion == "6":
+            if cliente:
+                print("\n--- BANDEJA DE ENTRADA ---")
+                if not cliente.correos_recibidos:
+                    print("Sin mensajes.")
+                else:
+                    for i, mail in enumerate(cliente.correos_recibidos):
+                        est = "Leído" if mail.esta_leido else "NUEVO"
+                        print(f"{i+1}. [{est}] De: {mail.remitente} | Asunto: {mail.asunto}")
+                        mail.marcar_como_leido()
+            else:
+                print("\nConfigure la cuenta primero.")
