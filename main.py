@@ -1,4 +1,7 @@
 # TP Laboratorio de Lenguajes - Cliente de Correo - Grupo 3
+
+#Definimos todos los obejtos con sus respectivos atributos y constructores
+
  
 class Contacto:
     def __init__(self, nombre: str, apellido: str, direccion_mail: str):
