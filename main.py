@@ -4,7 +4,7 @@ class Contacto:
     def __init__(self, nombre: str, apellido: str, direccion_mail: str):
         self.nombre = nombre
         self.apellido = apellido
-        # Validación de Roberto: El mail debe ser válido para crearse
+        # Validación El mail debe ser válido para crearse
         if "@" in direccion_mail:
             self.direccion_mail = direccion_mail
         else:
