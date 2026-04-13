@@ -1,6 +1,5 @@
 # TP Laboratorio de Lenguajes - Cliente de Correo - Grupo 3
 
-#Definimos todos los objetos con sus respectivos atributos y constructores
 from Clases import Contacto, Correo, Cuenta, ClienteDeCorreo
 
 def mostrar_menu_principal():
@@ -82,16 +81,14 @@ def main():
         elif opcion == "5":
             if cliente:
                 print("\n--- MENSAJES ENVIADOS ---")
-                # CAMBIO: Usar 'correos_enviados' en lugar de 'enviados'
                 if not cliente.correos_enviados:
                     print("Sin mensajes.")
                 else:
-                    # CAMBIO: Iterar sobre 'correos_enviados'
+                    # Iterar sobre 'correos_enviados'
                     for i, mail in enumerate(cliente.correos_enviados):
                         print(f"\n[Correo #{i+1}]")
                         print(f"Destinatario: {mail.destinatarios[0]}")
                         print(f"Asunto: {mail.asunto}")
-                        # CAMBIO: Usar 'cuerpo' en lugar de 'mensaje'
                         print(f"Cuerpo: {mail.cuerpo}") 
                         print("-" * 20)
             else:
