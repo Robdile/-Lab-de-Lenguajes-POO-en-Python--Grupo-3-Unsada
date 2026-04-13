@@ -140,6 +140,21 @@ def main():
             else:
                 print("\nConfigure la cuenta primero.")
 
+        elif opcion == "5":
+            if cliente:
+                print("\n--- MENSAJES ENVIADOS ---")
+                if not cliente.enviados:
+                    print("Sin mensajes.")
+                else:
+                    for i, mail in enumerate(cliente.enviados):
+                        print(f"\n[Correo #{i+1}]")
+                        print(f"Destinatario: {mail.destinatarios[0]}")
+                        print(f"Asunto: {mail.asunto}")
+                        print(f"Cuerpo: {mail.mensaje}") # Vista detallada del mensaje
+                        print("-" * 20)
+            else:
+                print("\nConfigure la cuenta primero.")
+
 
         elif opcion == "6":
             if cliente:
