@@ -167,3 +167,11 @@ def main():
                 print("-"*35)
             else:
                 print("\nConfigure la cuenta primero para ver reportes.")
+
+        
+        elif opcion == "0":
+            print("Cerrando sesión en el Sistema UNSADA. ¡Hasta luego Roberto!")
+            break
+
+if __name__ == "__main__":
+    main()
