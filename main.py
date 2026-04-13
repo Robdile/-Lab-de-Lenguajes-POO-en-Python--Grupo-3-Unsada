@@ -80,3 +80,28 @@ def mostrar_menu_principal():
     print("0. Salir")
     print("="*40)
     return input("Seleccione una opción: ")
+
+
+def main():
+    cliente = None 
+    
+    while True:
+        opcion = mostrar_menu_principal()
+        
+        if not opcion.isdigit():
+            print("\n>>> ERROR: Ingrese un número del 0 al 7.")
+            continue
+
+        if opcion == "1":
+            if cliente is not None:
+                print(f"\nAVISO: Ya existe la cuenta <{cliente.cuenta.direccion_mail}>.")
+            else:
+                user = input("Usuario: ")
+                mail = ""
+                while "@" not in mail:
+                    mail = input("Email: ")
+                    if "@" not in mail: print("Email inválido, intente de nuevo.")
+                srv_in = input("Servidor Entrada: ")
+                srv_out = input("Servidor Salida: ")
+                cliente = ClienteDeCorreo(Cuenta(user, mail, srv_in, srv_out))
+                print(">>> Cuenta configurada correctamente.")
