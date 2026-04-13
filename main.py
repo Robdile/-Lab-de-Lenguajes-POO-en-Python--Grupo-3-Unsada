@@ -64,8 +64,6 @@ class ClienteDeCorreo:
     def enviar_correo(self, unCorreo):
         self.correos_enviados.append(unCorreo)
 
-
-
 def mostrar_menu_principal():
     print("\n" + "="*40)
     print("      SISTEMA DE CORREO UNSADA")
@@ -81,27 +79,41 @@ def mostrar_menu_principal():
     print("="*40)
     return input("Seleccione una opción: ")
 
-
-def main():
-    cliente = None 
+definición principal():
+    cliente = Ninguno 
     
-    while True:
-        opcion = mostrar_menu_principal()
+    mientras Verdadero:
+        opción = mostrar_menu_principal()
         
-        if not opcion.isdigit():
-            print("\n>>> ERROR: Ingrese un número del 0 al 7.")
-            continue
+        si no opción.esdígito():
+            imprimir("\norte>>> ERROR: Ingrese un número del 0 al 7.")
+            continuar
+        si opción == "1":
+            si cliente es no Ninguno:
+                imprimir(F"\norteAVISO: Ya existe la cuenta <{cliente.cuenta.dirección_correo}>.")
+            demás:
+                usuario = aporte("Usuario: ")
+                correo = ""
+                mientras "@" no en correo:
+                    correo = aporte("Correo electrónico: ")
+                    si "@" no en correo:imprimir("Correo electrónico inválido, intento de nuevo.")
+                srv_in = aporte("Servidor Entrada: ")
+                srv_out = aporte("Servidor Salida: ")
+                cliente = ClienteDeCorreo(Cuenta(usuario,correo,srv_in,srv_out))
+                imprimir(">>> Cuenta configurada correctamente.")
 
-        if opcion == "1":
-            if cliente is not None:
-                print(f"\nAVISO: Ya existe la cuenta <{cliente.cuenta.direccion_mail}>.")
+elif opcion == "2":
+            if cliente:
+                print("\n-- Nuevo Contacto --")
+                m = input("Email: ")
+                if "@" not in m:
+                    print("Error: El mail debe contener '@'.")
+                elif any(c.direccion_mail == m for c in cliente.contactos):
+                    print(f"Error: El email {m} ya existe en la agenda.")
+                else:
+                    nom = input("Nombre: ")
+                    ape = input("Apellido: ")
+                    cliente.agregar_contacto(Contacto(nom, ape, m))
+                    print(f"Contacto {nom} {ape} guardado.")
             else:
-                user = input("Usuario: ")
-                mail = ""
-                while "@" not in mail:
-                    mail = input("Email: ")
-                    if "@" not in mail: print("Email inválido, intente de nuevo.")
-                srv_in = input("Servidor Entrada: ")
-                srv_out = input("Servidor Salida: ")
-                cliente = ClienteDeCorreo(Cuenta(user, mail, srv_in, srv_out))
-                print(">>> Cuenta configurada correctamente.")
+                print("\nDebe configurar la cuenta primero.")
