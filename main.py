@@ -88,9 +88,10 @@ def main():
                     # Iterar sobre 'correos_enviados'
                     for i, mail in enumerate(cliente.correos_enviados):
                         print(f"\n[Correo #{i+1}]")
+                        print(f"De: {mail.remitente}")
                         print(f"Destinatario: {mail.destinatarios[0]}")
                         print(f"Asunto: {mail.asunto}")
-                        print(f"Cuerpo: {mail.cuerpo}") 
+                        print(f"Mensaje: {mail.cuerpo}") 
                         print("-" * 20)
             else:
                 print("\nConfigure la cuenta primero.")
