@@ -1,6 +1,6 @@
 # TP Laboratorio de Lenguajes - Cliente de Correo - Grupo 3
 
-#Definimos todos los obejtos con sus respectivos atributos y constructores
+#Definimos todos los objetos con sus respectivos atributos y constructores
 from Clases import Contacto, Correo, Cuenta, ClienteDeCorreo
 
 def mostrar_menu_principal():
@@ -127,7 +127,7 @@ def main():
 
         
         elif opcion == "0":
-            print("Cerrando sesión en el Sistema UNSADA. ¡Hasta luego Roberto!")
+            print("Cerrando sesión en el Sistema UNSADA. ¡Hasta luego!")
             break
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-#Definimos todos los obejtos con sus respectivos atributos y constructores
+#Definimos todos los objetos con sus respectivos atributos y constructores
 class Contacto:
     def __init__(self, nombre: str, apellido: str, direccion_mail: str):
         self.nombre = nombre
